@@ -1,0 +1,97 @@
+[
+  {
+    "id": "sovereign-agent-architecture",
+    "name": "Sovereign Agent Architecture",
+    "tagline": "Autonomous multi-agent architecture built for sovereign LLMs and verifiable workflows",
+    "description": "An advanced agentic architecture exploring self-governing, multi-agent coordination, state management, and sovereign LLM workflows. Designed to eliminate single-point failures and vendor lock-in in autonomous agents.",
+    "problem": "Traditional LLM chains are brittle, vendor-locked, and lack reliable multi-step decision loops, state persistence, and verifiable execution checkpoints.",
+    "solution": "Architected a modular agentic framework featuring hierarchical state tracking, dynamic task allocation across specialist agents, and local/open-weight model execution fallback.",
+    "technologies": ["LangGraph", "LangChain", "Python", "Mistral AI", "Autonomous Agents", "Vector Search"],
+    "agent_workflow": "Supervisor decomposes user objective -> dispatches sub-tasks to specialized domain nodes -> aggregates intermediate feedback -> verifies terminal state before returning response.",
+    "highlights": [
+      "Dynamic agent routing with stateful memory loops",
+      "Sovereign multi-model support including Mistral AI and open-source models",
+      "Explicit error-recovery and task replanning nodes"
+    ],
+    "github_url": "https://github.com/MDineshkarthik0203/sovereign-agent-architecture",
+    "demo_url": null,
+    "status": "Active / Research",
+    "featured": true
+  },
+  {
+    "id": "nexora-ai",
+    "name": "Nexora AI",
+    "tagline": "Next-generation intelligent agent platform for contextual reasoning and automation",
+    "description": "An end-to-end GenAI application providing deep document comprehension, conversational RAG, and agentic tool dispatch for knowledge workers.",
+    "problem": "Information fragmentation across disparate unstructured docs makes knowledge synthesis slow and prone to hallucinations.",
+    "solution": "Built a hybrid RAG pipeline with high-precision vector embeddings, semantic re-ranking, and conversational memory with streaming UI feedback.",
+    "technologies": ["Generative AI", "RAG", "FastAPI", "Python", "Vector DB", "React"],
+    "agent_workflow": "User query -> Intent Classifier -> Semantic Vector Search + Chunk Reranking -> LLM Synthesis with Citations -> Streamed UI Output.",
+    "highlights": [
+      "Document ingestion and chunking pipeline with citation tracking",
+      "Low-latency streaming responses",
+      "Interactive conversational workspace"
+    ],
+    "github_url": "https://github.com/MDineshkarthik0203/Nexora-AI",
+    "demo_url": null,
+    "status": "Completed / Production-ready",
+    "featured": true
+  },
+  {
+    "id": "ai-student-learning-assistant",
+    "name": "AI Student Learning Assistant",
+    "tagline": "Personalized adaptive learning companion powered by generative AI",
+    "description": "An educational AI agent tailored for university and high school students to synthesize complex engineering concepts, generate interactive quizzes, and track comprehension.",
+    "problem": "Standard educational chatbots offer one-size-fits-all responses without assessing the student's mastery level or providing progressive scaffolding.",
+    "solution": "Engineered an adaptive pedagogical agent that assesses student baseline knowledge, creates customized learning roadmaps, and tests retention with active recall.",
+    "technologies": ["Python", "Generative AI", "NLP", "LLM", "Prompt Engineering"],
+    "agent_workflow": "Topic selection -> Diagnostic question generation -> Student response evaluation -> Dynamic difficulty adjustment -> Conceptual reinforcement.",
+    "highlights": [
+      "Adaptive difficulty calibration based on user answers",
+      "Structured flashcard and quiz generator",
+      "Conceptual breakdowns tailored for STEM topics"
+    ],
+    "github_url": "https://github.com/MDineshkarthik0203/AI-Student-Learning-Assistant",
+    "demo_url": null,
+    "status": "Completed",
+    "featured": true
+  },
+  {
+    "id": "ai-ecommerce-shopping-assistant",
+    "name": "AI E-commerce Shopping Assistant",
+    "tagline": "Conversational commerce agent for product recommendation and preference discovery",
+    "description": "An autonomous conversational shopping assistant that understands natural language consumer intent, filters inventory with precision, and provides contextual rationale for product choices.",
+    "problem": "Static e-commerce search engines fail when users query by subjective criteria, complex lifestyle constraints, or implicit needs.",
+    "solution": "Developed a conversational AI assistant that extracts multi-parameter product constraints from chat, queries structured product databases, and explains why products match.",
+    "technologies": ["Python", "Django REST Framework", "SQL", "LLM", "NLP"],
+    "agent_workflow": "Natural language dialogue -> Entity and intent extraction -> SQL / Catalog query generation -> Constraint satisfaction check -> Conversational pitch generation.",
+    "highlights": [
+      "Robust constraint extraction from natural dialogue",
+      "Integration with relational catalog databases",
+      "Transparent recommendation justification"
+    ],
+    "github_url": "https://github.com/MDineshkarthik0203/AI-E-commerce-Shopping-Assistant",
+    "demo_url": null,
+    "status": "Completed",
+    "featured": false
+  },
+  {
+    "id": "ai-knowledge-navigator-v2",
+    "name": "AI Knowledge Navigator v2",
+    "tagline": "Scalable multi-source RAG engine and knowledge exploration interface",
+    "description": "Second-generation knowledge navigator offering multi-hop question answering across technical documentation, codebases, and research papers with zero-shot query expansion.",
+    "problem": "Complex technical queries often span multiple documents and require multi-step reasoning that single-pass RAG cannot handle.",
+    "solution": "Built a multi-step query expansion and iterative retrieval pipeline that surfaces cross-document relationships with verifiable source attribution.",
+    "technologies": ["RAG", "LangChain", "Python", "Vector Embeddings", "FastAPI"],
+    "agent_workflow": "Multi-hop query -> Sub-query decomposition -> Parallel vector searches -> Cross-document context fusion -> Synthesized response with line citations.",
+    "highlights": [
+      "Multi-hop iterative reasoning",
+      "High-recall query expansion",
+      "Source verification and hallucination reduction"
+    ],
+    "github_url": "https://github.com/MDineshkarthik0203/ai-knowledge-navigator-v2",
+    "demo_url": null,
+    "status": "Completed",
+    "featured": false
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "name": "M Dinesh Karthik",
+  "preferred_name": "Dinesh",
+  "title": "Aspiring AI Engineer | Generative AI & Agentic AI Specialist",
+  "tagline": "AI Engineer • Generative AI • Agentic AI",
+  "avatar_url": "/dinesh-portrait.png",
+  "location": "Kottayam, Kerala / India",
+  "bio": "Undergraduate Computer Science student at the Indian Institute of Information Technology (IIIT) Kottayam specializing in Generative AI, Autonomous AI Agents, RAG pipelines, LangChain, and LangGraph architectures.",
+  "about": "I am an AI engineering undergraduate student at IIIT Kottayam (2024–2028). I specialize in Generative AI, AI Agents, RAG pipelines, and LLM orchestration with LangGraph, LangChain, and Mistral AI. With a strong foundation in Python, Django REST Framework, FastAPI, and SQL, I build end-to-end intelligent systems, autonomous assistants, and semantic search architectures.",
+  "contact": {
+    "email": "dineshkarthik0218@gmail.com",
+    "phone": "+91 9948435422",
+    "github": "https://github.com/MDineshkarthik0203",
+    "linkedin": "https://www.linkedin.com/in/dinesh-karthik-madduluri-537821336",
+    "portfolio": "https://dineshkarthik.ai"
+  },
+  "interests": [
+    "Agentic AI & Multi-Agent Orchestration",
+    "Retrieval-Augmented Generation (RAG)",
+    "LangGraph State Graphs",
+    "Sovereign & Local LLM Deployments",
+    "Voice AI & Conversational Agents",
+    "Python & Backend Engineering"
+  ],
+  "twin_persona": {
+    "role": "AI Digital Twin of M Dinesh Karthik",
+    "tone": "Sharp, articulate, technically sound, humble, and warmly professional",
+    "greeting": "Hi! I'm Dinesh's AI Digital Twin. Ask me anything about Dinesh's background at IIIT Kottayam, skills in Generative AI & LangGraph, or his projects!"
+  }
+}

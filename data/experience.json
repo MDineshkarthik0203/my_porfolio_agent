@@ -1,0 +1,27 @@
+[
+  {
+    "role": "Autonomous Agent & AI Systems Developer",
+    "organization": "Open Source & Academic Research",
+    "location": "IIIT Kottayam",
+    "period": "2024 – Present",
+    "type": "Self-Directed Engineering / Open Source",
+    "description": "Designing and deploying agentic AI architectures including sovereign multi-agent systems, RAG pipelines, and conversational tools using LangGraph, LangChain, and FastAPI.",
+    "highlights": [
+      "Built Sovereign Agent Architecture exploring stateful multi-agent supervisor systems",
+      "Created Nexora-AI and AI Knowledge Navigator v2 for deep semantic document search",
+      "Published production-grade repos demonstrating end-to-end LLM orchestration"
+    ]
+  },
+  {
+    "role": "Computer Science Undergraduate",
+    "organization": "Indian Institute of Information Technology Kottayam",
+    "location": "Kottayam, Kerala",
+    "period": "Aug 2024 – Apr 2028",
+    "type": "Education & Academic Projects",
+    "description": "Engaged in core computing coursework, algorithms, systems engineering, and AI/ML specialization.",
+    "highlights": [
+      "Active member in campus technical clubs and AI research circles",
+      "Collaborative project development in Python, modern web stacks, and databases"
+    ]
+  }
+]

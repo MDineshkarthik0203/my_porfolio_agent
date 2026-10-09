@@ -1,0 +1,46 @@
+{
+  "categories": [
+    {
+      "name": "Generative AI & Agentic AI",
+      "skills": [
+        { "name": "AI Agents & Autonomous Systems", "level": "Advanced", "highlight": true },
+        { "name": "LangGraph (State Graphs & Multi-Agent)", "level": "Advanced", "highlight": true },
+        { "name": "LangChain", "level": "Advanced", "highlight": true },
+        { "name": "Retrieval-Augmented Generation (RAG)", "level": "Advanced", "highlight": true },
+        { "name": "Large Language Models (LLMs)", "level": "Advanced", "highlight": true },
+        { "name": "Mistral AI", "level": "Proficient", "highlight": true },
+        { "name": "Prompt Engineering & Evaluation", "level": "Advanced", "highlight": false },
+        { "name": "Groq & Local LLM Inference", "level": "Proficient", "highlight": false }
+      ]
+    },
+    {
+      "name": "Machine Learning, DL & NLP",
+      "skills": [
+        { "name": "Machine Learning (ML)", "level": "Proficient", "highlight": true },
+        { "name": "Deep Learning (DL)", "level": "Proficient", "highlight": true },
+        { "name": "Natural Language Processing (NLP)", "level": "Proficient", "highlight": true },
+        { "name": "Vector Embeddings & Semantic Search", "level": "Advanced", "highlight": true }
+      ]
+    },
+    {
+      "name": "Backend Development & Databases",
+      "skills": [
+        { "name": "Python", "level": "Expert", "highlight": true },
+        { "name": "FastAPI", "level": "Advanced", "highlight": true },
+        { "name": "Django & Django REST Framework", "level": "Advanced", "highlight": true },
+        { "name": "SQL & Relational Databases", "level": "Proficient", "highlight": true },
+        { "name": "PostgreSQL & pgvector", "level": "Proficient", "highlight": true },
+        { "name": "RESTful API Design", "level": "Advanced", "highlight": false }
+      ]
+    },
+    {
+      "name": "Tools, DevOps & Observability",
+      "skills": [
+        { "name": "Git & GitHub", "level": "Advanced", "highlight": true },
+        { "name": "LangSmith (Agent Observability)", "level": "Proficient", "highlight": true },
+        { "name": "Docker", "level": "Familiar", "highlight": false },
+        { "name": "Linux & Bash", "level": "Proficient", "highlight": false }
+      ]
+    }
+  ]
+}

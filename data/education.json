@@ -1,0 +1,30 @@
+[
+  {
+    "institution": "Indian Institute of Information Technology Kottayam",
+    "short_name": "IIIT Kottayam",
+    "degree": "Bachelor of Technology - BTech",
+    "field_of_study": "Computer Science",
+    "period": "Aug 2024 – Apr 2028",
+    "status": "Currently pursuing (Undergraduate)",
+    "description": "Focusing on artificial intelligence, algorithmic design, agentic systems, data structures, and distributed systems."
+  },
+  {
+    "institution": "Narayana Junior College - India",
+    "short_name": "Narayana Junior College",
+    "degree": "Intermediate (10+2)",
+    "field_of_study": "MPC (Mathematics, Physics, Chemistry)",
+    "period": "Jun 2022 – Apr 2024",
+    "status": "Completed",
+    "description": "Rigorous foundation in mathematics, analytical problem solving, and science."
+  },
+  {
+    "institution": "Sri Chaitanya Techno School",
+    "short_name": "Sri Chaitanya",
+    "degree": "School, Techno",
+    "field_of_study": "Secondary Education",
+    "period": "Jun 2017 – Apr 2022",
+    "grade": "94.33%",
+    "status": "Completed with distinction",
+    "description": "Graduated with 94.33% grade with top academic standing in STEM foundations."
+  }
+]
