@@ -8,10 +8,15 @@ export const FloatingChatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [input, setInput] = useState<string>("");
   const { messages, isLoading, lastRoutedAgent, sendMessage, clearChat } = useChat();
-  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTo({
+        top: messagesContainerRef.current.scrollHeight,
+        behavior: "smooth",
+      });
+    }
   };
 
   useEffect(() => {
@@ -103,7 +108,10 @@ export const FloatingChatbot: React.FC = () => {
           </div>
 
           {/* Messages History List */}
-          <div className="flex-1 p-4 overflow-y-auto space-y-3 text-xs">
+          <div
+            ref={messagesContainerRef}
+            className="flex-1 p-4 overflow-y-auto space-y-3 text-xs scroll-smooth"
+          >
             {messages.map((msg) => (
               <div
                 key={msg.id}
@@ -143,7 +151,6 @@ export const FloatingChatbot: React.FC = () => {
                 <span>LangGraph agent thinking...</span>
               </div>
             )}
-            <div ref={messagesEndRef} />
           </div>
 
           {/* Quick Prompt Suggestions */}

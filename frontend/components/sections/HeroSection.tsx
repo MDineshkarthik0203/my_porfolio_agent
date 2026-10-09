@@ -65,12 +65,22 @@ export const HeroSection: React.FC = () => {
   const [inputText, setInputText] = useState<string>("");
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
 
-  const chatEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
+  const isFirstMountRef = useRef<boolean>(true);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Auto-scroll chat
+  // Auto-scroll chat: scrolls strictly INSIDE the chat container, NEVER scrolling the window/page or on initial load
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (isFirstMountRef.current) {
+      isFirstMountRef.current = false;
+      return;
+    }
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTo({
+        top: messagesContainerRef.current.scrollHeight,
+        behavior: "smooth",
+      });
+    }
   }, [messages, isProcessing]);
 
   // Hook for Speech STT & TTS
@@ -514,7 +524,10 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Messages Feed */}
-            <div className="flex-1 overflow-y-auto py-3 space-y-3 text-xs pr-1">
+            <div
+              ref={messagesContainerRef}
+              className="flex-1 overflow-y-auto py-3 space-y-3 text-xs pr-1 scroll-smooth"
+            >
               {messages.map((m) => (
                 <div
                   key={m.id}
@@ -544,7 +557,6 @@ export const HeroSection: React.FC = () => {
                   <span>Dinesh is thinking...</span>
                 </div>
               )}
-              <div ref={chatEndRef} />
             </div>
 
             {/* Suggestions: "Try asking..." */}

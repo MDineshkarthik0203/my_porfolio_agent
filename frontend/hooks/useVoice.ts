@@ -121,6 +121,99 @@ export function useVoice({ onTranscript, onSpeechEnd }: UseVoiceOptions = {}) {
     }
   }, []);
 
+  const FEMALE_IDENTIFIERS = [
+    "female",
+    "zira",
+    "susan",
+    "hazel",
+    "catherine",
+    "linda",
+    "heera",
+    "samantha",
+    "victoria",
+    "karen",
+    "fiona",
+    "moira",
+    "tessa",
+    "veena",
+    "jenny",
+    "aria",
+    "ana",
+    "emma",
+    "sonia",
+    "ava",
+    "allison",
+    "serena",
+    "stephanie",
+    "zoe",
+    "salli",
+    "kimberly",
+    "kendra",
+    "joanna",
+    "ivy",
+    "google us english", // Chrome's default Google US English voice is female
+    "google uk english female",
+  ];
+
+  const MALE_IDENTIFIERS = [
+    "male",
+    "david",
+    "guy",
+    "mark",
+    "george",
+    "ryan",
+    "andrew",
+    "daniel",
+    "alex",
+    "fred",
+    "oliver",
+    "rishi",
+    "prabhat",
+    "ravi",
+    "tom",
+    "aaron",
+    "james",
+    "richard",
+    "brian",
+    "matthew",
+    "justin",
+    "russell",
+    "natural (male)",
+    "google uk english male",
+    "en-us-standard-b",
+    "en-us-wavenet-b",
+    "en-us-neural2-d",
+  ];
+
+  const selectMaleVoice = (synth: SpeechSynthesis): SpeechSynthesisVoice | null => {
+    const voices = synth.getVoices();
+    if (!voices || voices.length === 0) return null;
+
+    const englishVoices = voices.filter((v) =>
+      v.lang.toLowerCase().startsWith("en")
+    );
+    const pool = englishVoices.length > 0 ? englishVoices : voices;
+
+    // 1. Explicit Male English voice (e.g. Microsoft David Desktop, Google UK English Male, Daniel, Alex)
+    const explicitMale = pool.find((v) => {
+      const nameLower = v.name.toLowerCase();
+      const isMale = MALE_IDENTIFIERS.some((m) => nameLower.includes(m));
+      const isFemale = FEMALE_IDENTIFIERS.some((f) => nameLower.includes(f));
+      return isMale && !isFemale;
+    });
+    if (explicitMale) return explicitMale;
+
+    // 2. English voice that is NOT in the female blacklist
+    const nonFemale = pool.find((v) => {
+      const nameLower = v.name.toLowerCase();
+      return !FEMALE_IDENTIFIERS.some((f) => nameLower.includes(f));
+    });
+    if (nonFemale) return nonFemale;
+
+    // 3. Fallback to pool first item
+    return pool[0] || null;
+  };
+
   const speak = useCallback((text: string, onDone?: () => void) => {
     if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
 
@@ -142,45 +235,37 @@ export function useVoice({ onTranscript, onSpeechEnd }: UseVoiceOptions = {}) {
     if (!cleanSpeech) return;
 
     const utterance = new SpeechSynthesisUtterance(cleanSpeech);
-    utterance.rate = 1.05;
-    utterance.pitch = 1.0;
+    utterance.rate = 1.0;
+    utterance.pitch = 0.92; // Natural, resonant masculine pitch for Dinesh
 
-    const pickVoice = () => {
-      const voices = synth.getVoices();
-      const preferred = voices.find(
-        (v) =>
-          v.lang.startsWith("en") &&
-          (v.name.includes("Google") ||
-            v.name.includes("Natural") ||
-            v.name.includes("Daniel") ||
-            v.name.includes("Guy") ||
-            v.name.includes("US"))
-      ) || voices.find((v) => v.lang.startsWith("en"));
-
-      if (preferred) {
-        utterance.voice = preferred;
+    const configureAndSpeak = () => {
+      const maleVoice = selectMaleVoice(synth);
+      if (maleVoice) {
+        utterance.voice = maleVoice;
       }
+
+      utterance.onstart = () => setIsSpeaking(true);
+      utterance.onend = () => {
+        setIsSpeaking(false);
+        onDone?.();
+      };
+      utterance.onerror = (e) => {
+        console.warn("Speech synthesis error:", e);
+        setIsSpeaking(false);
+        onDone?.();
+      };
+
+      synth.speak(utterance);
+      setIsSpeaking(true);
     };
 
-    pickVoice();
-    if (synth.onvoiceschanged !== undefined) {
-      synth.onvoiceschanged = pickVoice;
+    if (synth.getVoices().length === 0) {
+      synth.onvoiceschanged = () => {
+        configureAndSpeak();
+      };
+    } else {
+      configureAndSpeak();
     }
-
-    utterance.onstart = () => setIsSpeaking(true);
-    utterance.onend = () => {
-      setIsSpeaking(false);
-      onDone?.();
-    };
-    utterance.onerror = (e) => {
-      console.warn("Speech synthesis error:", e);
-      setIsSpeaking(false);
-      onDone?.();
-    };
-
-    // Chrome bug workaround: sometimes speech hangs after long text
-    synth.speak(utterance);
-    setIsSpeaking(true);
   }, []);
 
   const cancelSpeech = useCallback(() => {
